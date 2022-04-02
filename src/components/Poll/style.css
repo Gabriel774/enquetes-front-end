@@ -1,0 +1,74 @@
+.poll {
+    display: flex;
+    flex-direction: column;
+    background-color: #eee;
+    width: 530px;
+    border-radius: 0px 15px 0px 15px;
+    box-shadow: 0px 0px 11px rgba(0, 0, 0, 0.295);
+    cursor: pointer;
+    user-select: none;
+    transition: all .2s;
+    margin: 20px 0px;
+}
+
+.poll .header {
+    margin-bottom: 15px;
+}
+
+.poll .poll-title {
+    background-color: #e9a237;
+    border-radius: 0px 15px 0px 0px;
+    font-size: 20pt;
+    margin: 0;
+    padding: 15px;
+}
+
+.poll .content {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.poll .content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 5px;
+
+}
+
+.poll .content h2 {
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+.poll .content-desc {
+    display: flex;
+    justify-content: space-between;
+}
+
+.poll .content-desc div {
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+}
+
+.poll .content-desc .content-desc-text {
+    font-size: 13.5pt;
+    margin: 7px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.poll .status {
+    height: 15px;
+    width: 15px;
+    background-color: rgb(58, 199, 58);
+    border-radius: 100%;
+    margin: 0px 5px;
+    
+}
+
+.poll:hover {
+    transform: translateY(-10px) scale(1.1);
+}
