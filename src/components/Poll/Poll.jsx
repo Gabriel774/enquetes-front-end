@@ -18,7 +18,7 @@ const Poll = props => {
                             Status: <strong>Ativa</strong> <div className="status" ></div>
                         </span>
                         <span className="content-desc-text">
-                            Votos: <strong>99</strong>
+                            Total de Votos: <strong>{props.votes}</strong>
                         </span>
                     </div>
 

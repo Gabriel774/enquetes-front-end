@@ -1,0 +1,24 @@
+#home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 90px 10%;
+}
+
+#home-container .home-title {
+    font-size: 25pt;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+
+#home-container .home-desc {
+    font-size: 13pt;
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    #home-container {
+        margin: 90px 1%;
+    }
+}

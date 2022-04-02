@@ -7,7 +7,6 @@ const NavBar = () => {
     return (
         <nav id="nav-bar">
             <img className="logo" src={logo} alt="Logo YourPoll" />
-            
             <button className="btn">
                 <span>Criar Enquete</span>
                 <HiPlus />
