@@ -13,6 +13,7 @@
 #nav-bar .logo {
     height: 55px;
     user-select: none;
+    cursor: pointer;
 }
 
 #nav-bar .btn {

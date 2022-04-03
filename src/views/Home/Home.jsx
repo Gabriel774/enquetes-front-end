@@ -9,7 +9,7 @@ const Home = () => {
                 <h1 className="home-title">Enquetes</h1>
                 <h2 className="home-desc">
                     Bem-vindo(a) ao YourPoll! aqui você pode criar
-                    e responder enquetes de uma forma intuitiva.
+                    e responder enquetes de uma forma simples e intuitiva.
                 </h2>
             </header>
             <Poll
