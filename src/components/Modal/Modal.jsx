@@ -25,7 +25,7 @@ const Modal = props => {
     }
 
     const submitData = async () => {
-        const res = await axios.post('https://enquete-back-end.herokuapp.com/register', data)
+        const res = await axios.post('https://enquete-back-end.herokuapp.com/poll/register', data)
         alert(res.data.msg)
         props.setShowModal(false)
         props.fetchData()
