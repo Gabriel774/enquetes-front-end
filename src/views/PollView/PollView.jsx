@@ -49,7 +49,7 @@ const PollView = props => {
                 </Link>
             </div>
             {poll ? (
-                <PollCard poll={poll} setPoll={setPoll} />
+                <PollCard fetchData={props.fetchData} poll={poll} setPoll={setPoll} />
                 )
                 : <h2>Carregando</h2>
             }

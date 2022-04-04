@@ -20,6 +20,7 @@ const PollCard = props => {
         aux.options[selected].votes = aux.options[selected].votes + 1
         await axios.patch('https://enquete-back-end.herokuapp.com/poll/edit', aux)
         props.setPoll(aux)
+        props.fetchData()
         alert('Voto enviado com sucesso');
     }
 
