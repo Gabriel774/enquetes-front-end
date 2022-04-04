@@ -1,5 +1,6 @@
 import { React, useState } from 'react'
 import './style.css'
+import axios from 'axios'
 
 const Modal = props => {
     const [data, setData] = useState({
@@ -23,8 +24,11 @@ const Modal = props => {
         setData(aux)
     }
 
-    const submitData = () => {
-        console.log(data)
+    const submitData = async () => {
+        const res = await axios.post('http://localhost:5000/poll/register', data)
+        alert(res.data.msg)
+        props.setShowModal(false)
+        props.fetchData()
     }
 
     const addOption = () => {
