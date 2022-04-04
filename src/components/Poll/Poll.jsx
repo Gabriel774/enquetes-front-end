@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import './style.css'
 
 const Poll = props => {
@@ -14,7 +15,7 @@ const Poll = props => {
     }, [])
 
     return (
-        <section className="poll">
+        <Link to={`/poll/${props.id}`} className="poll">
             <main className="header">
                 <h1
                     className="poll-title"
@@ -51,7 +52,7 @@ const Poll = props => {
                     </div>
                 </div>
             </article>
-        </section>
+        </Link>
     )
 }
 

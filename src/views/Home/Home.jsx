@@ -17,6 +17,7 @@ const Home = props => {
                 poll.options.map((op) => totVotes += op.votes)
 
                 return <Poll
+                    id={poll._id}
                     title={poll.name}
                     key={poll._id}
                     start={poll.start}

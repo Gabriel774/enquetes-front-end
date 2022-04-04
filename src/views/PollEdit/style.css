@@ -1,29 +1,14 @@
-#modal {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.315);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: appear .5s;
-}
-
-#modal-content {
+#poll-edit {
     position: relative;
     background-color: #fff;
-    width: 65%;
     border-radius: 10px;
-    max-height: 90vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    padding: 20px;
     display: flex;
+    width: 65%;
     flex-direction: column;
+    margin: 100px auto;
 }
 
-#modal .circle {
+#poll-edit .circle {
     width: 30px;
     height: 30px;
     border-radius: 100%;
@@ -38,32 +23,32 @@
     margin-bottom: 20px;
 }
 
-#modal .inp-label {
+#poll-edit .inp-label {
     font-size: 14pt;
 }
 
-#modal .circle:hover {
+#poll-edit .circle:hover {
     background-color: #e9a237;
     color: #fff;
 }
 
-#modal .circle:active {
+#poll-edit .circle:active {
     background-color: #d39232;
 }
 
-#modal .circle[disabled] {
+#poll-edit .circle[disabled] {
     color: grey;
     border-color: grey;
     cursor: not-allowed;
 }
 
-#modal .circle:hover[disabled] {
+#poll-edit .circle:hover[disabled] {
     color: grey;
     border-color: grey;
     background-color: #fff;
 }
 
-#modal .inp {
+#poll-edit .inp {
     border: none;
     outline: none;
     border-bottom: 2px solid #e9a237;
@@ -72,26 +57,26 @@
     transition: all .2s;
 }
 
-#modal .inp:invalid {
+#poll-edit .inp:invalid {
     border-bottom-color: grey;
 }
 
-#modal .inp-container {
+#poll-edit .inp-container {
     display: grid;
     grid-template-columns: auto 1fr;
 }
 
-#modal .center {
+#poll-edit .center {
     text-align: center;
     margin: auto;
 }
 
-#modal .buttons {
+#poll-edit .buttons {
     margin: auto;
     width: auto;
 }
 
-#modal .date-container {
+#poll-edit .date-container {
     margin: 30px 0px;
     display: flex;
     flex-wrap: wrap;
@@ -99,19 +84,19 @@
 }
 
 
-#modal .color-container {
+#poll-edit .color-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     margin: 30px 0px;
 }
 
-#modal .select {
+#poll-edit .select {
     font-size: 12pt;
     outline: none
 }
 
-#modal .btn {
+#poll-edit .btn {
     font-size: 16.5pt;
     padding: 3px 9px;
     margin: auto;
@@ -122,27 +107,27 @@
     cursor: pointer;
 }
 
-#modal .btn[disabled] {
+#poll-edit .btn[disabled] {
     color: grey;
     border-color: grey;
     cursor: not-allowed;
 }
 
-#modal .btn:hover[disabled] {
+#poll-edit .btn:hover[disabled] {
     color: grey;
     background-color: #fff;
 }
 
-#modal .btn:hover {
+#poll-edit .btn:hover {
     background-color: #e9a237;
     color: #fff;
 }
 
-#modal .btn:active {
+#poll-edit .btn:active {
     background-color: #da9631;
 }
 
-#modal .close {
+#poll-edit .close {
     position: absolute;
     right: 20px;
     top: 15px;
@@ -157,36 +142,35 @@
     user-select: none;
 }
 
-#modal .close:hover {
+#poll-edit .close:hover {
     background-color: #e9a237;
     color: #fff;
 }
 
-#modal .close:active {
+#poll-edit .close:active {
     background-color: #da9631;
 }
 
-#modal .warning {
+#poll-edit .warning {
     margin-bottom: 5px;
 }
 
-@keyframes appear {
-    from {
-        opacity: 0;
-    }
+.loading {
+    text-align: center;
+    margin: 100px auto;
 }
 
 @media (max-width:950px) {
-    #modal-content {
+    #poll-edit {
         width: 95%;
     }
 
-    #modal .date {
+    #poll-edit .date {
         font-size: 12pt;
         margin: 10px 0px;
     }
 
-    #modal .color {
+    #poll-edit .color {
         margin: 10px 0px;
     }
 }

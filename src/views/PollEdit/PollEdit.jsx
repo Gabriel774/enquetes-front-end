@@ -1,20 +1,14 @@
-import { React, useState } from 'react'
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
+import NoRoute from "../NoRoute/NoRoute";
 import './style.css'
-import axios from 'axios'
 
-const Modal = props => {
-    const [data, setData] = useState({
-        name: '',
-        options: [
-            { title: '', votes: 0 },
-            { title: '', votes: 0 },
-            { title: '', votes: 0 }
-        ],
-        start: '',
-        end: '',
-        color: { background: '#e9a237', text: '#000000' }
-    })
-    const handleClick = e => e.target.id === 'modal' && props.setShowModal(false)
+const PollEdit = props => {
+    const [data, setData] = useState(null)
+    const [error, setError] = useState(false)
+    const params = useParams('id')
+    const navigate = useNavigate()
 
     const handleChange = (value, key, type) => {
         const aux = { ...data }
@@ -24,11 +18,24 @@ const Modal = props => {
         setData(aux)
     }
 
+    useEffect(() => {
+        getData()
+    }, [])
+
+    const getData = async () => {
+        try {
+            const res = await axios.get(`https://enquete-back-end.herokuapp.com/polls/${params.id}`)
+            setData(res.data)
+        } catch (error) {
+            setError(true)
+        }
+    }
+
     const submitData = async () => {
-        const res = await axios.post('https://enquete-back-end.herokuapp.com/register', data)
-        alert(res.data.msg)
-        props.setShowModal(false)
+        const res = await axios.patch('https://enquete-back-end.herokuapp.com/poll/edit', data)
         props.fetchData()
+        alert(res.data.msg)
+        navigate('/')
     }
 
     const addOption = () => {
@@ -52,11 +59,12 @@ const Modal = props => {
         return false
     }
 
-    if (props.showModal) return (
-        <div id="modal" onClick={(e) => handleClick(e)}>
-            <div id="modal-content">
+    if (!error) {
 
-                <h1 className="center">Criar Enquete</h1>
+        return (
+            data !== null ? (
+                <div id="poll-edit" >
+                <h1 className="center">Editar Enquete</h1>
 
                 <p className="inp-container">
                     <label className="inp-label">
@@ -68,7 +76,7 @@ const Modal = props => {
                         type="text"
                         required
                         className="inp"
-                    />
+                        />
                 </p>
 
                 <h2 className="center">Opções da enquete</h2>
@@ -106,7 +114,7 @@ const Modal = props => {
                         disabled={data.options.length <= 3}
                         className="circle"
                         onClick={() => removeOption()}
-                    >
+                        >
                         -
                     </button>
                 </div>
@@ -121,7 +129,7 @@ const Modal = props => {
                             onChange={(e) => handleChange(e.target.value, 'start')}
                             type="date"
                             className="date"
-                        />
+                            />
                     </span>
 
                     <span>
@@ -131,7 +139,7 @@ const Modal = props => {
                             onChange={(e) => handleChange(e.target.value, 'end')}
                             type="date"
                             className="date"
-                        />
+                            />
                     </span>
                 </div>
 
@@ -139,13 +147,16 @@ const Modal = props => {
                     <p className="center warning">
                         A data de inicio não pode ser posterior a data do fim.
                     </p>
-                )}
+                )
+                }
 
-                {data.start === '' || data.end === '' ? (
-                    <p className="center warning">
-                        Preencha os campos.
-                    </p>
-                ) : false}
+                {
+                    data.start === '' || data.end === '' ? (
+                        <p className="center warning">
+                            Preencha os campos.
+                        </p>
+                    ) : false
+                }
 
                 <h2 className="center">Cor da enquete</h2>
                 <h4 className="center">Defina as cores que serão exibidas no cabeçalho da enquete</h4>
@@ -179,18 +190,12 @@ const Modal = props => {
                     disabled={checkDisable()}
                     onClick={() => submitData()}
                     className="btn">
-                    {checkDisable() ? 'Preencha todos os campos corretamente' : 'Adicionar Enquete'}
+                    {checkDisable() ? 'Preencha todos os campos corretamente' : 'Editar Enquete'}
                 </button>
-
-                <button
-                    onClick={() => props.setShowModal(false)}
-                    className="close"
-                >
-                    X
-                </button>
-            </div>
-        </div>
-    )
+            </div >
+        ) : <h2 className="loading">Carregando...</h2>
+        )
+    } else return <NoRoute />
 }
 
-export default Modal
+export default PollEdit

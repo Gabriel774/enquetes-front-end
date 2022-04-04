@@ -1,0 +1,24 @@
+.option {
+    border: 1px solid black;
+    padding: 5px 10px;
+    font-size: 14pt;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0px;
+}
+
+.option-active {
+    border-color: #e9a237;
+    background-color: #e9a23760;
+    color: #ff9900;
+}
+.option:hover {
+    border-color: #e9a237;
+    background-color: #e9a23760;
+    color: #ff9900;
+}
+
+.option:active {
+    background-color: #aa762960;
+}
